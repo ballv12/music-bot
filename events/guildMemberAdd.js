@@ -36,7 +36,7 @@ function getRandomImage(images) {
     return images[Math.floor(Math.random() * images.length)];
 }
 
-function truncateUsername(username, maxLength = 15) {
+function truncateUsername(username, maxLength = 50) {
     return username.length > maxLength ? `${username.slice(0, maxLength)}...` : username;
 }
 
