@@ -1,7 +1,7 @@
 ![Animated Background](https://i.imgur.com/ECZKmlO.gif)
 
 <h1 align="center" style="font-family: Arial, sans-serif; color: #FF6F61; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
-  ALL IN ONE BOT 1.2.1
+  ALL IN ONE BOT 1.2.2
 </h1>
 
 <p align="center">
@@ -38,54 +38,75 @@
   </a>
 </p>
 
+<h2>Discord All-in-One BOT Installation Guide</h2>
 
+<h3>How to Install</h3>
 
-# Discord All-in-One BOT Installation Guide
+<h4>Step 1: Update <code>config.json</code> [ USE ENV FILES ]</h4>
 
-## How to Install
+<ol>
+  <li>Open the <code>config.json</code> and add your MongoDB URL.</li>
+</ol>
 
-### Step 1: Update `config.json`
+<h4>ENV SETUP</h4>
 
-1. Open the `config.json` and add your mongodb url.
+<pre>
+TOKEN=, 
+FACEBOOK_ACCESS_TOKEN=, 
+FORTNITE_API_KEY=, 
+YOUTUBE_API_KEY=, 
+TWITCH_CLIENT_ID=, 
+TWITCH_ACCESS_TOKEN=, 
+INSTAGRAM_ACCESS_TOKEN=, 
+MONGODB_URI=
+GEMINI_API=
+</pre>
 
-### Step 2: Set Up Hosting Service
+<h4>Step 2: Set Up Hosting Service</h4>
 
-1. Go to your preferred hosting service. For this guide, we use [Render](https://render.com/).
-2. In the Build & Deploy section, paste your repository URL.
+<ol>
+  <li>Go to your preferred hosting service. For this guide, we use <a href="https://render.com/">Render</a>.</li>
+  <li>In the Build & Deploy section, paste your repository URL.</li>
+</ol>
 
+<h4>Step 3: Add Build and Start Commands</h4>
+<pre>
+Run the following commands to install dependencies and start your bot:
 
-### Step 3: Add Build and Start Commands
- Run the following commands to install dependencies and start your bot:
+npm install
+node index.js
+</pre>
 
-   npm install, 
-   node index.js
+<h4>Step 4: Get Your Bot Token</h4>
+<ol>
+  <li>Navigate to the Discord Developer Portal.</li>
+  <li>Find your application, and retrieve the bot token from the "Bot" section.</li>
+</ol>
 
-### Step 4: Get Your Bot Token
-Navigate to the Discord Developer Portal.
-Find your application, and retrieve the bot token from the "Bot" section.
+<h4>Step 5: Set Environment Variable</h4>
+<ol>
+  <li>Create an environment variable with the following details:</li>
+  <ul>
+    <li>Key: TOKEN</li>
+    <li>Value: [your bot token]</li>
+  </ul>
+  <li>Deploy your application using your hosting service’s deployment process.</li>
+</ol>
 
-### Step 5: Set Environment Variable
-Create an environment variable with the following details:
-Key: TOKEN
-Value: [your bot token]
-Deploy your application using your hosting service’s deployment process.
+<h4>Step 6: Wait and Test</h4>
+<ol>
+  <li>Wait approximately five minutes for your bot to deploy and start up.</li>
+  <li>Test your bot by sending commands to ensure it is operational.</li>
+</ol>
 
-### Step 6: Wait and Test
-Wait approximately five minutes for your bot to deploy and start up.
+<p>🎉 Congratulations! Your bot is now up and running. 🥳</p>
 
-Test your bot by sending commands to ensure it is operational.
+<h3>Additional Resources</h3>
+<p><strong>Video Tutorial:</strong> If you prefer a video guide, watch this YouTube tutorial [ Soon ].</p>
+<p><strong>Common Errors:</strong> Consult the errors section for troubleshooting.</p>
 
-🎉 Congratulations! Your bot is now up and running. 🥳
-
-### Additional Resources
-Video Tutorial: If you prefer a video guide, watch this YouTube tutorial [ Soon ].
-
-Common Errors: Consult the errors section for troubleshooting.
-
-### Useful Files
-
-events/ready.js: Bot status configuration.
-
-UI/banners/musicard.js: Change, add, or remove music cards here.
-
-UI/icons/musicicons.js: Change, add, or remove music icons here.
+<h3>Useful Files</h3>
+<ul>
+  <li><code>UI/banners/musicard.js</code>: Change, add, or remove music cards here.</li>
+  <li><code>UI/icons/musicicons.js</code>: Change, add, or remove music icons here.</li>
+</ul>

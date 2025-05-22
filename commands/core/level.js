@@ -100,23 +100,43 @@ module.exports = {
             await updateXp(user.id, -amount);
             return interaction.editReply(`✅ Removed **${amount} XP** from **${user.username}**.`);
 
-        } else if (subcommand === 'leaderboard') {
+        }else if (subcommand === 'leaderboard') {
+            // Fetch the top 10 leaderboard data
             let leaderboardData = await getLeaderboard(1, 10);
-            leaderboardData = leaderboardData.filter(user => user.userId !== interaction.client.user.id);
-
-            if (!leaderboardData.length) return interaction.editReply('❌ No leaderboard data available.');
-
-            const leaderboardEntries = leaderboardData.map((user, index) =>
-                `**${index + 1}.** <@${user.userId}> - Level **${user.level}**, XP: **${user.xp}**`);
-
+        
+            // Filter out the bot's own ID and users not in the current guild
+            leaderboardData = leaderboardData.filter(user => {
+                const member = interaction.guild.members.cache.get(user.userId);
+                return user.userId !== interaction.client.user.id && member;
+            });
+        
+            // If no data remains after filtering, inform the user
+            if (!leaderboardData.length) {
+                const noDataEmbed = new EmbedBuilder()
+                    .setColor('#FF0000')
+                    .setTitle('❌ No Leaderboard Data')
+                    .setDescription('There is no leaderboard data available for this server.')
+                    .setTimestamp();
+        
+                const reply = await interaction.editReply({ embeds: [noDataEmbed] });
+                setTimeout(() => reply.delete().catch(() => {}), 3000);
+                return;
+            }
+        
+            // Map the leaderboard entries for display
+            const leaderboardEntries = leaderboardData.map((user, index) => {
+                const member = interaction.guild.members.cache.get(user.userId);
+                return `**${index + 1}.** ${member} - Level **${user.level}**, XP: **${user.xp}**`;
+            });
+        
+            // Create and send the leaderboard embed
             const embed = new EmbedBuilder()
                 .setColor('#FFD700')
                 .setTitle('🏆 XP Leaderboard')
                 .setDescription(leaderboardEntries.join('\n'))
                 .setTimestamp();
-
-            return interaction.editReply({ embeds: [embed] });
-
+        
+            await interaction.editReply({ embeds: [embed] });
         } else if (subcommand === 'rank') {
             const userData = await getUserData(user.id);
             if (!userData) return interaction.editReply(`❌ **${user.username}** has no rank data.`);
@@ -157,7 +177,7 @@ module.exports = {
             .setAuthor({ 
                 name: "Alert!", 
                 iconURL: cmdIcons.dotIcon,
-                url: "https://discord.gg/xQF9f9yUEM"
+                url: "https://ballv12.github.io/bell-main/"
             })
             .setDescription('- This command can only be used through slash commands!\n- Please use `/level`')
             .setTimestamp();

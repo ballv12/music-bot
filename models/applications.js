@@ -36,8 +36,13 @@ async function removeQuestion(guildId, appName, questionIndex) {
 
 
 async function deleteApplication(guildId, appName) {
-    await applicationCollection.deleteOne({ guildId, appName });
+
+    const result = await applicationCollection.deleteOne({ guildId, appName });
+    
+ 
+    return result.deletedCount > 0;
 }
+
 
 
 async function activateApplication(guildId, appName, mainChannel, responseChannel) {

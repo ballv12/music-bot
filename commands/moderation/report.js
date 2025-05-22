@@ -20,7 +20,7 @@ Test Passed    : ✓
 */
 
 
-const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require('discord.js');
 const { addReport, getReports, clearReports, removeReport } = require('../../models/reports');
 const cmdIcons = require('../../UI/icons/commandicons');
 module.exports = {
@@ -155,7 +155,7 @@ module.exports = {
             .setAuthor({ 
                 name: "Alert!", 
                 iconURL: cmdIcons.dotIcon,
-                url: "https://discord.gg/xQF9f9yUEM"
+                url: "https://ballv12.github.io/bell-main/"
             })
             .setDescription('- This command can only be used through slash commands!\n- Please use `/report`')
             .setTimestamp();

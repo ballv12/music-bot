@@ -2,23 +2,16 @@
     "token": "",
     "language": "en",
     "prefix": "!",
-    "mongodbUri": "mongodb+srv://ball:Ballv12@backflip.cw6sg0o.mongodb.net/?retryWrites=true&w=majority",
+    "mongodbUri": "",
     "excessCommands": {
         "utility": true,
         "other": true,
         "hentai": true,
         "troll": true,
-        "levelling" : true,
-        "lavalink" : true,
-        "economy" : true,
-        "application" : true,
-        "birthday" : true,
-        "gaming" : true,
-        "customcommands" : true,
-        "report" : true
+        "economy" : true
     },
     "categories": {
-        "anime": true,
+        "media": true,
         "basic": true,
         "utility": true,
         "moderation": true,
@@ -27,16 +20,5 @@
         "fun": true,
         "distube": true,
         "setups": true
-   },
-     "lavalink": {
-        "lavalink": {
-        "identifier": "Bell",
-        "password": "ballv12",
-        "host": "thor.pylex.software",
-        "port":  11397,
-        "secure": false
-      }
-    }, 
-    "spotifyClientId": "f71a3da30e254962965ca2a89d6f74b9",
-    "spotifyClientSecret": "199a619d22dd4e55a4a2c1a7a3d70e63"
+    }
 }

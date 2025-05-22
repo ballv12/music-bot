@@ -52,7 +52,7 @@ const enLang = {
       serverCreatedOn: "Server Created On"
   },
   serverInfoError: "An error occurred while fetching server information.",
-  supportServerLink: "https://discord.gg/xQF9f9yUEM",
+  supportServerLink: "https://ballv12.github.io/bell-main/",
 
   // For subcommands
   serverIconTitle: "Server Icon",
@@ -61,17 +61,17 @@ const enLang = {
     // support.js
     supportDescription: "Support server of this Bot",
     supportTitle: "Support Server",
-    supportServerLink: "https://discord.gg/xQF9f9yUEM",
-    githubLink: "https://github.com/GlaceYT",
-    replitLink: "https://replit.com/@GlaceYT",
-    youtubeLink: "https://www.youtube.com/@GlaceYT",
+    supportServerLink: "https://ballv12.github.io/bell-main/",
+    githubLink: "https://github.com/ballv12",
+    replitLink: "https://github.com/ballv12",
+    youtubeLink: "https://www.youtube.com/watch?v=FPyIQPx0tuM",
     supportIconURL: 'https://cdn.discordapp.com/attachments/1230824451990622299/1230824519220985896/6280-2.gif?ex=6638ae28&is=66375ca8&hm=13e4a1b91a95b2934a39de1876e66c11711c7b30ac1a91c2a158f2f2ed1c2fc6&',
-    supportImageURL: 'https://cdn.discordapp.com/attachments/1113800537402527903/1236803979996958740/11.png?ex=663956f7&is=66380577&hm=3b3c19a11adcb979517a133f2907f671305d23f1f5092cf7df043e6d5cab07bc&',
-    supportDescriptionTitle: "Join our Discord server for support and updates",
-    followUsOn: "Follow us on",
-    discord: "Discord",
+    supportImageURL: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/6a78348e-2063-47b1-bea3-8bc9ff5b350d/dg1s9k3-89b96b63-b615-4f80-8554-68da086c0593.jpg/v1/fill/w_1192,h_670,q_70,strp/discord_shop_video_banner_profile_picture_by_brendeneastman_dg1s9k3-pre.jpg',
+    supportDescriptionTitle: "Bell Website for support",
+    followUsOn: "links",
+    discord: "Website",
     github: "GitHub",
-    replit: "Replit",
+    replit: "Website",
     youtube: "YouTube",
     // userinfo.js
     userinfoDescription: "Show detailed information about a user",

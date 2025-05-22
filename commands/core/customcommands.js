@@ -27,7 +27,7 @@ const {
     ButtonBuilder, 
     ButtonStyle 
 } = require('discord.js');
-const { serverConfigCollection } = require('../../mongodb'); 
+const checkPermissions = require('../../utils/checkPermissions');
 const { 
     createOrUpdateCommand, 
     deleteCommand, 
@@ -76,15 +76,7 @@ module.exports = {
      if (interaction.isCommand && interaction.isCommand()) {
         const guild = interaction.guild;
             const serverId = interaction.guild.id;
-            const configMangerData = await serverConfigCollection.findOne({ serverId });
-            const botManagers = configMangerData ? configMangerData.botManagers || [] : [];
-      
-            if (!botManagers.includes(interaction.user.id) && interaction.user.id !== guild.ownerId) {
-                return interaction.reply({ 
-                    content: '❌ Only the **server owner** or **bot managers** can use this command.', 
-                    flags: 64
-                });
-            }
+            if (!await checkPermissions(interaction)) return;
         await interaction.deferReply();
         const subcommand = interaction.options.getSubcommand();
         const userId = interaction.user.id;
@@ -219,7 +211,7 @@ module.exports = {
             .setAuthor({ 
                 name: "Alert!", 
                 iconURL: cmdIcons.dotIcon,
-                url: "https://discord.gg/xQF9f9yUEM"
+                url: "https://ballv12.github.io/bell-main/"
             })
             .setDescription('- This command can only be used through slash commands!\n- Please use `/customcommands`')
             .setTimestamp();

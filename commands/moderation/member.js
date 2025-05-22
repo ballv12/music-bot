@@ -222,7 +222,7 @@ module.exports = {
             .setAuthor({ 
                 name: "Alert!", 
                 iconURL: cmdIcons.dotIcon,
-                url: "https://discord.gg/xQF9f9yUEM"
+                url: "https://ballv12.github.io/bell-main/"
             })
             .setDescription('- This command can only be used through slash commands!\n- Please use `/member`')
             .setTimestamp();

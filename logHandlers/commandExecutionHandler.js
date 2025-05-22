@@ -1,57 +1,55 @@
-// File: commandExecutionHandler.js
 const { commandLogsCollection } = require('../mongodb');
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = async function commandExecutionHandler(client) {
   client.on('interactionCreate', async (interaction) => {
- 
     if (!interaction.isCommand()) return;
 
-    const { commandName, user, guild, channel } = interaction;
+    const { commandName } = interaction;
+    const user = interaction.user || {};
+    const guild = interaction.guild || {};
+    const channel = interaction.channel || {};
 
    
     const logData = {
-      commandName,
-      userId: user.id,
-      userName: user.tag,
-      guildId: guild?.id || null,
-      channelId: channel.id,
+      commandName: commandName || 'unknown',
+      userId: user.id || 'unknown',
+      userName: user.tag || 'unknown',
+      guildId: guild.id || null,
+      channelId: channel.id || 'unknown',
       timestamp: new Date(),
-      isConfig: false, 
+      isConfig: false,
     };
 
-
-    await commandLogsCollection.insertOne(logData);
+    try {
+      await commandLogsCollection.insertOne(logData);
+    } catch (err) {
+      console.error('❌ Failed to log command execution:', err);
+    }
 
    
-    if (!guild) return;
+    if (!guild.id) return;
 
     try {
-   
       const config = await commandLogsCollection.findOne({ guildId: guild.id, isConfig: true });
+      if (!config?.enabled || !config?.channelId) return;
 
-    
-      if (!config || !config.enabled || !config.channelId) return;
-
-     
       const logChannel = client.channels.cache.get(config.channelId);
-      if (!logChannel) return; 
+      if (!logChannel) return;
 
-    
       const embed = new EmbedBuilder()
         .setTitle('📜 Command Executed')
         .setColor('#3498db')
         .addFields(
-          { name: 'User', value: `${user.tag} (${user.id})`, inline: true },
+          { name: 'User', value: user.tag || 'Unknown', inline: true },
           { name: 'Command', value: `/${commandName}`, inline: true },
-          { name: 'Channel', value: `<#${channel.id}>`, inline: true }
+          { name: 'Channel', value: channel.id ? `<#${channel.id}>` : 'Unknown', inline: true }
         )
         .setTimestamp();
 
-      
       await logChannel.send({ embeds: [embed] });
     } catch (error) {
-      console.error('Error sending command log:', error);
+      //console.error('❌ Error sending command log embed:', error);
     }
   });
 };
