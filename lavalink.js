@@ -2,10 +2,10 @@
 module.exports = {
     enabled: true, 
     lavalink: {
-        name: "Bell",
-        password: "ballv12",
-        host: "thor.pylex.software",
-        port:  11397,
-        secure: false
+      name: "GlaceYT",
+      password: "glaceyt",
+      host: "5.39.63.207",
+      port:  8262,
+      secure: false
     }
 };
