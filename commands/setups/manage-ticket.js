@@ -23,8 +23,8 @@ module.exports = {
                         .setRequired(true)
                         .addChoices(
                             { name: 'Support', value: 'support' },
-                            { name: 'Suggestion', value: 'suggestion' },
-                            { name: 'Feedback', value: 'feedback' },
+                            { name: 'Partnerships', value: 'partnerships' },
+                            { name: 'Developer', value: 'developer' },
                             { name: 'Report', value: 'report' }
                         ))
                 .addUserOption(option =>
@@ -323,8 +323,8 @@ async function sendTicketEmbed(channel) {
         .setPlaceholder('Choose ticket type')
         .addOptions([
             { label: '🆘 Support', value: 'support' },
-            { label: '📂 Suggestion', value: 'suggestion' },
-            { label: '💜 Feedback', value: 'feedback' },
+            { label: '🤝 Partnerships', value: 'partnerships' },
+            { label: '👨🏻‍💻 Developer', value: 'developer' },
             { label: '⚠️ Report', value: 'report' }
         ]);
 
